@@ -56,7 +56,7 @@ class Agent():
         replayCopy = []
         while True:
             try:
-                item = globalMemory.get(block=False)
+                item = globalMemory.get(block=True, timeout=1)
             except Empty:
                 break
             else:
@@ -125,4 +125,4 @@ if __name__ == "__main__":
     for p in processes:
         p.join()
         
-    printf("\nTraining fnished.\n")
+    print("Training finished.")
