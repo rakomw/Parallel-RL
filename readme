@@ -1,0 +1,10 @@
+Training was done using Google Colab, and that is the preferred way to run the Python notebooks included here since most needed packages are preinstalled.
+Pipenv was used to manage python dependencies when running locally. The corresponding Pipfile is included and can be used to replicate the virtual environment if Pipenv is installed, or the required packages can be installed manually. Tensorflow, Keras, OpenAI Gym, and Ray are the ones likely to not already be installed and are available through pip. The OpenAI baselines includes utilities used to wrap the atari environments, and must be installed from source to work locally. On colab the pip install may appear to hit an error but will work properly. That code can be found at https://github.com/openai/baselines.
+The python notebooks can then be opened locally in jupyter notebook, or the corresponding .py files can be run as normal python scripts.
+The Baseline program is a sequential DQN from the Keras documentation, which we used as a baseline for comparison.
+The ReplayMemory program implements a parallel DQN agent using a shared replay memory
+The ParameterServer program implements a parallel DQN agent using a shared parameter server
+The BothShared program implements a parallel DQN agent using both a shared parameter server and a shared replay memory.
+The evaluate agent script was used to load saved weights from different points in training and run evaluation episodes.
+The demo program will load one of our best-performing models and play a few episodes of the corresponding game. The environment can't be rendered graphically in Google Colab, so this should be run locally.
+All programs can easily be swapped to use any of the three environments. Just change the environment name where it is created, and for the ParameterServer program adjust the final layer of the network to the correct number of actions.
